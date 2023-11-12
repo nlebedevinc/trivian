@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 useHead({
   meta: [
     {
@@ -17,7 +16,7 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Nikolay\'s Trivian'
+  title: 'Anthony\'s QR Toolkit',
 })
 </script>
 

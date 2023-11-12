@@ -2,10 +2,11 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    'floating-vue/nuxt',
   ],
 
-  ssr: true,
+  ssr: false,
 
   experimental: {
     payloadExtraction: false,

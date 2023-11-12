@@ -11,5 +11,5 @@ export default defineNuxtModule({
       branch: (await git.branch()).current,
       sha: (await git.revparse(['HEAD'])).trim(),
     }
-  }
+  },
 })

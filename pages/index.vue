@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { hasParentWindow, toggleDark } from '~/logic/state'
+import { hasParentWindow, storeIndex, toggleDark } from '~/logic/state'
 
 const config = useRuntimeConfig()
 const buildTime = useTimeAgo(config.public.buildTime as any)
@@ -8,7 +8,7 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
 <template>
   <div flex="~ justify-center" px3 py4 lg:p10 lg:py10>
     <div flex="~ col gap-4" class="max-w-full min-h-[calc(100vh-100px)] w-250">
-      <!-- <div fixed right-5 top-14 flex="col gap-2" hidden xl:flex>
+      <div fixed right-5 top-14 flex="col gap-2" hidden xl:flex>
         <VTooltip v-for="n in 10" :key="n" placement="left" distance="10">
           <button
             :style="{
@@ -26,7 +26,7 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
             </div>
           </template>
         </VTooltip>
-      </div> -->
+      </div>
 
       <StateProvider :key="storeIndex" :index="storeIndex" />
 

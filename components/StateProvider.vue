@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // import { deepMerge } from '@antfu/utils'
-import { defaultState, hasParentWindow, isLargeScreen, showGridHelper, storeIndex } from '~/logic/state'
+import { sendParentEvent } from '~/logic/messaging'
+import { dataUrlScannerUpload, defaultState, hasParentWindow, isLargeScreen, showGridHelper, storeIndex } from '~/logic/state'
 import { view } from '~/logic/view'
-
-import type { State } from '~/logic/types';
+import type { State } from '~/logic/types'
 
 defineProps<{
   index: number
@@ -20,8 +20,45 @@ const state = useLocalStorage<State>(
   },
 )
 
+// API for iframe communication
+useEventListener(window, 'message', (event) => {
+  const { data } = event
+  if (typeof data !== 'string')
+    return
+  try {
+    const json = JSON.parse(data)
+    // eslint-disable-next-line no-console
+    console.log('Message from parent window', json)
+    if (json.source !== 'qrtoolkit-parent')
+      return
+    switch (json.event) {
+      case 'setImage':
+        hasParentWindow.value = true
+        state.value.uploaded.image = json.data
+        view.value = 'compare'
+        break
+      case 'setScannerImage':
+        hasParentWindow.value = true
+        dataUrlScannerUpload.value = json.data
+        view.value = 'verify'
+        break
+      case 'init':
+        hasParentWindow.value = true
+        break
+    }
+  }
+  catch (e) {
+    console.error('Failed to parse message from parent window', e)
+  }
+})
+
 // eslint-disable-next-line no-console
 console.log('State', state.value)
+
+onMounted(() => {
+  // send message to parent window to let it know we're ready
+  sendParentEvent('init', {})
+})
 </script>
 
 <template>
