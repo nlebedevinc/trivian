@@ -2,8 +2,7 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
-    '@nuxtjs/color-mode',
-    'floating-vue/nuxt',
+    '@nuxtjs/color-mode'
   ],
 
   ssr: true,
