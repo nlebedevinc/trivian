@@ -45,7 +45,9 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
         </VTooltip>
       </div>
 
-      <!-- <div flex-auto /> -->
+      <TStateProvider :key="storeIndex" :index="storeIndex" />
+
+      <div flex-auto />
 
       <div mt-15 flex="~ col gap-2">
         <div>
