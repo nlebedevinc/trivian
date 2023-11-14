@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { view } from '~/logic/view'
+import { view } from '~/logic/tview'
 import { defaultState, storeIndex } from '~/logic/state'
 
 import type { State } from '~/logic/types'
@@ -26,25 +26,25 @@ console.log('State', state.value)
 <template>
   <div flex="~ gap-2 items-center wrap">
     <button
-      flex="~ gap-1.5  items-center" text-button
-      :class="view === 'generator' ? 'bg-secondary' : 'op50'"
-      @click="view = 'generator'"
+      flex="~ gap-1.5 items-center" text-button
+      :class="view === 'foreword' ? 'bg-secondary' : 'op50'"
+      @click="view = 'foreword'"
     >
       <div i-ri-qr-code-line />
       Foreword
     </button>
     <button
       flex="~ gap-1.5 items-center" text-button
-      :class="view === 'compare' ? 'bg-secondary' : 'op50'"
-      @click="view = 'compare'"
+      :class="view === 'game' ? 'bg-secondary' : 'op50'"
+      @click="view = 'game'"
     >
       <div i-ri-compasses-2-line />
       Game
     </button>
     <button
       flex="~ gap-1.5 items-center" text-button
-      :class="view === 'verify' ? 'bg-secondary' : 'op50'"
-      @click="view = 'verify'"
+      :class="view === 'conclusion' ? 'bg-secondary' : 'op50'"
+      @click="view = 'conclusion'"
     >
       <div i-ri-qr-scan-2-line />
       Conclusion
@@ -60,13 +60,44 @@ console.log('State', state.value)
     <div flex-auto />
     <!-- <div>
       <a href="https://antfu.me" target="_blank" op75 hover:underline hover:op100>Anthony Fu</a><span op50>'s QR Toolkit</span>
+    </div> -->
+    <div v-if="view === 'game'" flex="~ gap-1.5 items-center">
+      <div flex="~ gap-1.5 items-center" ml2 text-sm>
+        <div i-ri-github-fill />
+        25
+      </div>
+
+      <div flex="~ gap-1.5 items-center" ml2 text-sm>
+        <div i-ri-github-fill />
+        1/25
+      </div>
+
+      <div flex="~ gap-1.5 items-center" ml2 text-sm>
+        <div i-ri-github-fill />
+        00:00
+      </div>
+
+      <div flex="~ gap-1.5 items-center" ml2 text-sm>
+        <div i-ri-github-fill />
+        Hint
+      </div>
     </div>
+
     <button
       flex="~ gap-1.5 items-center" ml2 text-sm text-button
       :class="view === 'credit' ? 'bg-secondary' : 'op50'"
       @click="view = 'credit'"
     >
       Credits
-    </button> -->
+    </button>
+  </div>
+
+  <div v-show="view === 'foreword'" w-full>
+    <Foreword :state="state" />
+  </div>
+
+  <!-- should be number of points, then index of question, timer, hint  -->
+  <div v-if="view === 'game'" w-full>
+    <Game :state="state" />
   </div>
 </template>
