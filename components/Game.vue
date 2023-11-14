@@ -59,6 +59,27 @@ function start() {
             <p>In what country did the first Starbucks open outside of North America?</p>
           </div>
         </div>
+        <div flex="~ gap-2 items-center wrap">
+          <button
+            flex="~ gap-1.5 items-center" text-button
+            class="bg-secondary"
+            @click="view = 'foreword'"
+          >
+            <div i-ri-qr-code-line />
+            Prev
+          </button>
+
+          <div flex-auto />
+
+          <button
+            flex="~ gap-1.5 items-center" text-button
+            class="bg-secondary"
+            @click="view = 'foreword'"
+          >
+            <div i-ri-qr-code-line />
+            Next
+          </button>
+        </div>
       </div>
     </div>
     <div>
