@@ -21,7 +21,7 @@ const props = defineProps<{
 const quiz = computed(() => props.state.quiz)
 // const state = computed(() => props.state)
 const current = computed(() => props.state.current)
-
+const results = computed(() => props.state.results)
 // const dimension = ref<{
 //   upload?: {
 //     width: number
@@ -40,10 +40,6 @@ const current = computed(() => props.state.current)
 onMounted(() => {
 })
 
-function result() {
-  view.value = 'game'
-}
-
 function next() {
   console.log("Next", props.state.current)
   if (current.value < quiz.value.length - 1) {
@@ -57,6 +53,39 @@ function prev() {
   if (current.value > 0) {
     props.state.current--
   }
+}
+
+function response(opt: string) {
+  // in case if it doesn't exists
+  if (!results.value.answers[current.value]) {
+    // create new one and add it to the list on the user visit
+    props.state.results.answers[current.value] = { attempts: [] }
+  }
+
+  props.state.results.answers[current.value].attempts.push(opt)
+}
+
+const isSubmitted = computed(() => {
+  
+})
+
+
+// should be computed value
+function calcAnswerStyle(opt: string): string {
+  if (!results.value.answers[current.value]) {
+    // create new one and add it to the list on the user visit
+    props.state.results.answers[current.value] = { attempts: [] }
+  }
+
+  if (!results.value.answers[current.value].attempts.includes(opt)) {
+    return ''
+  }
+
+  if (quiz.value[current.value].answer === opt) {
+    return 'green'
+  }
+
+  return 'red'
 }
 </script>
 
@@ -99,7 +128,10 @@ function prev() {
         <button
           v-for="opt in quiz[state.current].options" :key="opt"
           py2 text-sm text-button
-          @click="result"
+          :style="{
+            borderColor: calcAnswerStyle(opt),
+          }"
+          @click="() => response(opt)"
         >
           <div i-ri-download-line />
           {{ opt }}

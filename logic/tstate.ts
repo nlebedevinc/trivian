@@ -8,5 +8,10 @@ export function defaultState(): TState {
     quiz: config.quiz as Question[],
     meta: config.meta as Meta,
     current: 0,
+    results: {
+      answers: [],
+      time: 0,
+      total: 0,
+    },
   }
 }

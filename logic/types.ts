@@ -189,11 +189,22 @@ export interface Meta {
   tips: string[]
 }
 
+export interface Answer {
+  attempts: string[]
+}
+
+export interface Results {
+  answers: Answer[]
+  total: number
+  time: number
+}
+
 export interface TState {
   title: string
   meta: Meta
   quiz: Question[]
   current: number
+  results: Results
 }
 
 export interface Segment {
