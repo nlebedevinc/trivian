@@ -1,23 +1,25 @@
 <script setup lang="ts">
 import { view } from '~/logic/tview'
-import { defaultState, storeIndex } from '~/logic/state'
+import { defaultState } from '~/logic/tstate'
 
-import type { State } from '~/logic/types'
+import type { TState } from '~/logic/types'
 
 defineProps<{
   index: number
 }>()
 
-const state = useLocalStorage<State>(
-  `qrd-state-${storeIndex.value}`,
-  defaultState(),
-  {
-    mergeDefaults(storageValue, defaults) {
-      const result = { ...defaults, ...storageValue }
-      return result
-    },
-  },
-)
+// const state = useLocalStorage<State>(
+//   `qrd-state-${storeIndex.value}`,
+//   defaultState(),
+//   {
+//     mergeDefaults(storageValue, defaults) {
+//       const result = { ...defaults, ...storageValue }
+//       return result
+//     },
+//   },
+// )
+
+const state = ref<TState>(defaultState())
 
 // eslint-disable-next-line no-console
 console.log('State', state.value)

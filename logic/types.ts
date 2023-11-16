@@ -178,6 +178,24 @@ export interface State {
   uploaded: UploadState
 }
 
+export interface Question {
+  question: string
+  options: string[]
+  answer: string
+}
+
+export interface Meta {
+  description: string
+  tips: string[]
+}
+
+export interface TState {
+  title: string
+  meta: Meta
+  quiz: Question[]
+  current: number
+}
+
 export interface Segment {
   x: number
   y: number

@@ -2,13 +2,13 @@
 <script setup lang="ts">
 import type { ScanResult } from 'qr-scanner-wechat'
 import { view } from '~/logic/tview'
-import type { State } from '~/logic/types'
+import type { TState } from '~/logic/types'
 
 const props = defineProps<{
-  state: State
+  state: TState
 }>()
 
-const state = computed(() => props.state.scanner)
+// const state = computed(() => props.state.scanner)
 const canvasPreview = ref<HTMLCanvasElement>()
 const canvasRect = ref<HTMLCanvasElement>()
 const result = ref<ScanResult>()

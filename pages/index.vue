@@ -2,7 +2,6 @@
 import { hasParentWindow, storeIndex, toggleDark } from '~/logic/state'
 
 const config = useRuntimeConfig()
-// const appCongig = useAppConfig()
 const buildTime = useTimeAgo(config.public.buildTime as any)
 </script>
 
