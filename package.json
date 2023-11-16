@@ -2,6 +2,7 @@
   "version": "0.1.1",
   "private": true,
   "packageManager": "pnpm@8.7.5",
+  "game" : {},
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",

@@ -11,7 +11,7 @@ const props = defineProps<{
 const state = computed(() => props.state.scanner)
 const canvasPreview = ref<HTMLCanvasElement>()
 const canvasRect = ref<HTMLCanvasElement>()
-const result = ref<ScanResult>()
+// const result = ref<ScanResult>()
 const reading = ref(false)
 const loading = ref(true)
 const error = ref<any>()
@@ -34,18 +34,9 @@ const dimension = ref<{
 }>({})
 
 onMounted(() => {
-  // ready()
-  //   .then(() => {
-  //     loading.value = false
-  //     console.log('Scanner loaded')
-  //   })
-  //   .catch((e) => {
-  //     error.value = e
-  //     console.error(e)
-  //   })
 })
 
-function start() {
+function result() {
   view.value = 'game'
 }
 </script>
@@ -86,13 +77,7 @@ function start() {
       <div flex="~ col gap-2" min-h-50>
         <button
           py2 text-sm text-button
-        >
-          <div i-ri-download-line />
-          Download
-        </button>
-
-        <button
-          py2 text-sm text-button
+          @click="result"
         >
           <div i-ri-download-line />
           Download
