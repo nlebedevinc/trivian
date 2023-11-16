@@ -66,7 +66,15 @@ function response(opt: string) {
 }
 
 const isSubmitted = computed(() => {
-  
+  const result = results.value.answers[current.value]
+
+  if (!result) {
+    return false
+  }
+
+  const { answer }  = quiz.value[current.value]
+
+  return result.attempts.includes(answer)
 })
 
 
@@ -128,6 +136,7 @@ function calcAnswerStyle(opt: string): string {
         <button
           v-for="opt in quiz[state.current].options" :key="opt"
           py2 text-sm text-button
+          :disabled="isSubmitted"
           :style="{
             borderColor: calcAnswerStyle(opt),
           }"
