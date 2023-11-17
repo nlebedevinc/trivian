@@ -21,21 +21,7 @@ const props = defineProps<{
 const quiz = computed(() => props.state.quiz)
 // const state = computed(() => props.state)
 const current = computed(() => props.state.current)
-const results = computed(() => props.state.results)
-// const dimension = ref<{
-//   upload?: {
-//     width: number
-//     height: number
-//   }
-//   preprocessed?: {
-//     width: number
-//     height: number
-//   }
-//   matched?: {
-//     width: number
-//     height: number
-//   }
-// }>({})
+const results = computed(() => props.state.results) 
 
 onMounted(() => {
 })

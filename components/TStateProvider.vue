@@ -63,7 +63,7 @@ console.log('State', state.value)
     <!-- <div>
       <a href="https://antfu.me" target="_blank" op75 hover:underline hover:op100>Anthony Fu</a><span op50>'s QR Toolkit</span>
     </div> -->
-    <div v-if="view === 'game'" flex="~ gap-1.5 items-center">
+    <div v-if="view === 'game' || view === 'conclusion'" flex="~ gap-1.5 items-center">
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
         <div i-ri-github-fill />
         25
@@ -101,5 +101,9 @@ console.log('State', state.value)
   <!-- should be number of points, then index of question, timer, hint  -->
   <div v-if="view === 'game'" w-full>
     <Game :state="state" />
+  </div>
+
+  <div v-if="view === 'conclusion'" w-full>
+    <Conclusion :state="state" />
   </div>
 </template>
