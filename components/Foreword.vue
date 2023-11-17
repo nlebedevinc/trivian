@@ -35,16 +35,9 @@ const dimension = ref<{
   }
 }>({})
 
+// in case we need to load something once component initializing
+// like external request
 onMounted(() => {
-  // ready()
-  //   .then(() => {
-  //     loading.value = false
-  //     console.log('Scanner loaded')
-  //   })
-  //   .catch((e) => {
-  //     error.value = e
-  //     console.error(e)
-  //   })
 })
 
 function start() {
