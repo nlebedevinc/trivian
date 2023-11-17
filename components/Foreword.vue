@@ -19,21 +19,7 @@ const props = defineProps<{
 // const triesCount = ref(0)
 
 const title = computed(() => props.state.title)
-
-const dimension = ref<{
-  upload?: {
-    width: number
-    height: number
-  }
-  preprocessed?: {
-    width: number
-    height: number
-  }
-  matched?: {
-    width: number
-    height: number
-  }
-}>({})
+const meta = computed(() => props.state.meta)
 
 // in case we need to load something once component initializing
 // like external request
