@@ -9,14 +9,16 @@ const props = defineProps<{
 }>()
 
 // const state = computed(() => props.state.scanner)
-const canvasPreview = ref<HTMLCanvasElement>()
-const canvasRect = ref<HTMLCanvasElement>()
-const result = ref<ScanResult>()
-const reading = ref(false)
-const loading = ref(true)
-const error = ref<any>()
-const controlling = ref(false)
-const triesCount = ref(0)
+// const canvasPreview = ref<HTMLCanvasElement>()
+// const canvasRect = ref<HTMLCanvasElement>()
+// const result = ref<ScanResult>()
+// const reading = ref(false)
+// const loading = ref(true)
+// const error = ref<any>()
+// const controlling = ref(false)
+// const triesCount = ref(0)
+
+const title = computed(() => props.state.title)
 
 const dimension = ref<{
   upload?: {
@@ -56,7 +58,7 @@ function start() {
     <div flex="~ gap-3 justify-center" border="~ base rounded" p4>
       <!-- <span i-ri-folder-2-line flex-none text-lg text-yellow /> -->
       <div flex="~ col gap-4" text-lg>
-        Fancy name
+        {{ title }}
       </div>
     </div>
 
