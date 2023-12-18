@@ -19,9 +19,8 @@ const props = defineProps<{
 // const triesCount = ref(0)
 
 const quiz = computed(() => props.state.quiz)
-// const state = computed(() => props.state)
 const current = computed(() => props.state.current)
-const results = computed(() => props.state.results) 
+const results = computed(() => props.state.results)
 
 onMounted(() => {
 })
@@ -39,6 +38,11 @@ function prev() {
   if (current.value > 0) {
     props.state.current--
   }
+}
+
+function finish() {
+  console.log("Finish", props.state, isFinished)
+  view.value = "conclusion"
 }
 
 function response(opt: string) {
@@ -61,6 +65,31 @@ const isSubmitted = computed(() => {
   const { answer }  = quiz.value[current.value]
 
   return result.attempts.includes(answer)
+})
+
+const isFinished = computed(() => {
+  const { value: q } = quiz
+  const { value: r } = results
+
+  if (q.length > r.answers.length) {
+    return false
+  }
+
+  for (let i = 0; i < q.length; i++) {
+    const result = r.answers[i]
+
+    if (!result) {
+      return false
+    }
+
+    const { answer } = q[i]
+
+    if (!result.attempts.includes(answer)) {
+      return false
+    }
+  }
+
+  return true
 })
 
 
@@ -106,6 +135,7 @@ function calcAnswerStyle(opt: string): string {
           <div flex-auto />
 
           <button
+            v-if="current !== quiz.length - 1"
             flex="~ gap-1.5 items-center" text-button
             :class="current === quiz.length - 1 ? 'op50' : 'bg-secondary'"
             :disabled="current === quiz.length - 1"
@@ -113,6 +143,16 @@ function calcAnswerStyle(opt: string): string {
           >
             <div i-ri-qr-code-line />
             Next
+          </button>
+          <button
+            v-if="current === quiz.length - 1"
+            flex="~ gap-1.5 items-center" text-button
+            :class="!isFinished ? 'op50' : 'bg-secondary'"
+            :disabled="!isFinished"
+            @click="finish"
+          >
+            <div i-ri-qr-code-line />
+            Finish
           </button>
         </div>
       </div>
