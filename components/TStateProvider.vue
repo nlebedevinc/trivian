@@ -20,7 +20,6 @@ defineProps<{
 // )
 
 const state = ref<TState>(defaultState())
-
 // eslint-disable-next-line no-console
 console.log('State', state.value)
 </script>
@@ -77,6 +76,10 @@ console.log('State', state.value)
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
         <div i-ri-github-fill />
         00:00
+        <Timer
+          v-model="state.results.time"
+          :active="view === 'game'"
+        />
       </div>
 
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
