@@ -32,6 +32,13 @@ function dispose() {
   clearInterval(interval)
 }
 
+function normalize(time: number): string {
+  const minutes = Math.floor(time / 60).toString().padStart(2, '0')
+  const seconds = Math.floor(time % 60).toString().padStart(2, '0')
+
+  return `${minutes}:${seconds}`
+}
+
 onMounted(run)
 onUnmounted(dispose)
 
@@ -39,6 +46,6 @@ onUnmounted(dispose)
 
 <template>
   <div>
-    <p>{{ time }}</p>
+    <p>{{ normalize(time) }}</p>
   </div>
 </template>
