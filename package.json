@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@8.7.5",
   "game" : {
-    "title": "Sample quiz",
+    "title": "My first actual quiz",
     "meta": {
       "description": "Sample description",
       "tips": [
@@ -13,38 +13,43 @@
     },
     "quiz": [
       {
-        "question": "In what country did the first Starbucks open outside of North America?",
+        "question": "Who sang the title song for the latest Bond film, No Time to Die?",
         "options": [
-          "Option 1",
-          "Option 2",
-          "Option 3",
-          "Option 4",
-          "Option 11",
-          "Option 21",
-          "Option 31",
-          "Option 41"
+          "Adele",
+          "Sam Smith",
+          "Billie Eilish",
+          "Sir Paul"
         ],
-        "answer": "Option 3"
+        "answer": "Billie Eilish"
       },
       {
-        "question": "In what country did the first Starbucks open outside of North America?",
+        "question": "What company makes the Xperia model of smartphone?",
         "options": [
-          "Option 5",
-          "Option 6",
-          "Option 7",
-          "Option 8"
+          "Samsung",
+          "Sony",
+          "Nokia"
         ],
-        "answer": "Option 7"
+        "answer": "Sony"
       },
       {
-        "question": "In what country did the first Starbucks open outside of North America?",
+        "question": "Where was the first example of paper money used?",
         "options": [
-          "Option 9",
-          "Option 10",
-          "Option 3",
-          "Option 4"
+          "China",
+          "Turkey",
+          "Greece",
+          "Belarus"
         ],
-        "answer": "Option 3"
+        "answer": "China"
+      },
+      {
+        "question": "If you were looking at Iguazu Falls, on what continent would you be?",
+        "options": [
+          "Asia",
+          "Africa",
+          "South America",
+          "Europe"
+        ],
+        "answer": "South America"
       }
     ]
   },

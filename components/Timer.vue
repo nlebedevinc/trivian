@@ -46,6 +46,6 @@ onUnmounted(dispose)
 
 <template>
   <div>
-    <p>{{ normalize(time) }}</p>
+    <p w-40px>{{ normalize(time) }}</p>
   </div>
 </template>

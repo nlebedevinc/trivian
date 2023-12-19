@@ -75,7 +75,6 @@ console.log('State', state.value)
 
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
         <div i-ri-github-fill />
-        00:00
         <Timer
           v-model="state.results.time"
           :active="view === 'game'"
@@ -91,6 +90,7 @@ console.log('State', state.value)
     <button
       flex="~ gap-1.5 items-center" ml2 text-sm text-button
       :class="view === 'credit' ? 'bg-secondary' : 'op50'"
+      :disabled="true"
       @click="view = 'credit'"
     >
       Credits
