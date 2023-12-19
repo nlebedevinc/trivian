@@ -12,7 +12,7 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
       Trivian
     </h1>
     <div flex="~ gap-3 items-center">
-      <a href="https://github.com/antfu/qrcode-toolkit" target="_blank" text-lg op50 hover:op100>
+      <a href="https://github.com/nlebedevinc/trivian" target="_blank" text-lg op50 hover:op100>
         <div i-ri-github-fill />
       </a>
       <a href="https://chat.antfu.me" target="_blank" text-lg op50 hover:op100>
