@@ -123,26 +123,24 @@ function calcAnswerStyle(opt: string): string {
         </div>
         <div flex="~ gap-2 items-center wrap">
           <button
-            flex="~ gap-1.5 items-center" text-button
+            flex="~ gap-1.5 items-center" text-button text-xl
             :class="current === 0 ? 'op50' : 'bg-secondary'"
             :disabled="current === 0"
             @click="prev"
           >
-            <div i-ri-qr-code-line />
-            Prev
+            <div i-ri-arrow-drop-left-line/>
           </button>
 
           <div flex-auto />
 
           <button
             v-if="current !== quiz.length - 1"
-            flex="~ gap-1.5 items-center" text-button
+            flex="~ gap-1.5 items-center" text-button text-xl
             :class="current === quiz.length - 1 ? 'op50' : 'bg-secondary'"
             :disabled="current === quiz.length - 1"
             @click="next"
           >
-            <div i-ri-qr-code-line />
-            Next
+            <div i-ri-arrow-drop-right-line />
           </button>
           <button
             v-if="current === quiz.length - 1"
@@ -151,7 +149,6 @@ function calcAnswerStyle(opt: string): string {
             :disabled="!isFinished"
             @click="finish"
           >
-            <div i-ri-qr-code-line />
             Finish
           </button>
         </div>
@@ -168,7 +165,8 @@ function calcAnswerStyle(opt: string): string {
           }"
           @click="() => response(opt)"
         >
-          <div i-ri-download-line />
+          <!-- Change icon based on the answer -->
+          <div i-ri-checkbox-blank-circle-line/>
           {{ opt }}
         </button>
       </div>

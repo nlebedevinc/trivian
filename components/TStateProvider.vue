@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { view } from '~/logic/tview'
-import { defaultState } from '~/logic/tstate'
+import { defaultState, defaultResults } from '~/logic/tstate'
 
 import type { TState } from '~/logic/types'
 
@@ -20,6 +20,7 @@ defineProps<{
 // )
 
 const state = ref<TState>(defaultState())
+
 // eslint-disable-next-line no-console
 console.log('State', state.value)
 </script>
@@ -64,26 +65,21 @@ console.log('State', state.value)
     </div> -->
     <div v-if="view === 'game' || view === 'conclusion'" flex="~ gap-1.5 items-center">
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
-        <div i-ri-github-fill />
+        <div i-ri-star-s-line/>
         25
       </div>
 
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
-        <div i-ri-github-fill />
+        <div i-ri-walk-fill />
         1/25
       </div>
 
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
-        <div i-ri-github-fill />
+        <div i-ri-time-line/>
         <Timer
           v-model="state.results.time"
           :active="view === 'game'"
         />
-      </div>
-
-      <div flex="~ gap-1.5 items-center" ml2 text-sm>
-        <div i-ri-github-fill />
-        Hint
       </div>
     </div>
 
@@ -107,6 +103,6 @@ console.log('State', state.value)
   </div>
 
   <div v-if="view === 'conclusion'" w-full>
-    <Conclusion :state="state" />
+    <Conclusion :state="state" :reset="() => state.results = defaultResults()" />
   </div>
 </template>

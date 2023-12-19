@@ -62,12 +62,12 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
             href="https://github.com/antfu/sd-webui-qrcode-toolkit"
             target="_blank"
             flex="~ inline gap-1 items-center" op75 hover:op100
-          >Web UI Extension</a>
+          >How to play?</a>
         </div>
         <div flex="~ gap-1 items-center">
           <span i-ri-arrow-right-line ml1 inline-block h-1em op50 />
           <a
-            href="https://github.com/antfu/qrcode-toolkit/issues"
+            href="https://github.com/nlebedevinc/trivian/issues"
             target="_blank"
             flex="~ inline gap-1 items-center" op75 hover:op100
           >Bug report / feature request</a>
@@ -105,7 +105,7 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
           <img src="https://antfu.me/logo.svg" h-1.2em w-1.2em dark:invert>
         </a>
         <div flex="~ gap-1 items-center" ml-3>
-          <span op35>Made with </span> <a mt--2 href="https://nuxt.com" target="_blank" flex="~ inline gap-1 items-center" translate-y-0.9 op75 hover:op100><div i-logos-nuxt-icon /> <span font-bold op65>Nuxt</span></a><br>
+          <span op35>Made with </span><div text-red i-ri-heart-3-fill /><span op35> for </span><span font-bold op65></span><br>
         </div>
       </div>
     </div>

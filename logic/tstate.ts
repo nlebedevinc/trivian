@@ -1,6 +1,14 @@
-import type { TState, Question, Meta } from './types'
+import type { TState, Question, Meta, Results } from './types'
 
 const config = useAppConfig()
+
+export function defaultResults(): Results {
+  return {
+    answers: [],
+    time: 0,
+    total: 0,
+  }
+}
 
 export function defaultState(): TState {
   return {
@@ -8,10 +16,6 @@ export function defaultState(): TState {
     quiz: config.quiz as Question[],
     meta: config.meta as Meta,
     current: 0,
-    results: {
-      answers: [],
-      time: 0,
-      total: 0,
-    },
+    results: defaultResults(),
   }
 }

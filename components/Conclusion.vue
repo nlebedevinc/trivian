@@ -6,9 +6,10 @@ import type { TState } from '~/logic/types'
 
 const props = defineProps<{
   state: TState
+  reset: () => void
 }>()
 
-// const state = computed(() => props.state.scanner)
+const state = computed(() => props.state)
 const canvasPreview = ref<HTMLCanvasElement>()
 const canvasRect = ref<HTMLCanvasElement>()
 const result = ref<ScanResult>()
@@ -46,7 +47,8 @@ onMounted(() => {
 })
 
 function start() {
-  view.value = 'game'
+  view.value = 'foreword'
+  props.reset()
 }
 </script>
 
