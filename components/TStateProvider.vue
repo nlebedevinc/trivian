@@ -32,15 +32,15 @@ console.log('State', state.value)
       :class="view === 'foreword' ? 'bg-secondary' : 'op50'"
       @click="view = 'foreword'"
     >
-      <div i-ri-qr-code-line />
-      Foreword
+      <div i-ri-graduation-cap-line />
+      Intro
     </button>
     <button
       flex="~ gap-1.5 items-center" text-button
       :class="view === 'game' ? 'bg-secondary' : 'op50'"
       @click="view = 'game'"
     >
-      <div i-ri-compasses-2-line />
+      <div i-ri-billiards-fill />
       Game
     </button>
     <button
@@ -48,8 +48,8 @@ console.log('State', state.value)
       :class="view === 'conclusion' ? 'bg-secondary' : 'op50'"
       @click="view = 'conclusion'"
     >
-      <div i-ri-qr-scan-2-line />
-      Conclusion
+      <div i-ri-medal-line />
+      Results
     </button>
     <!-- <button
       flex="~ gap-1.5 items-center" text-button
@@ -71,7 +71,7 @@ console.log('State', state.value)
 
       <div flex="~ gap-1.5 items-center" ml2 text-sm>
         <div i-ri-walk-fill />
-        1/25
+        {{ `${state.current + 1}/${state.quiz.length}` }}
       </div>
 
       <div flex="~ gap-1.5 items-center" ml2 text-sm>

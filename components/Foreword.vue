@@ -59,10 +59,10 @@ function start() {
       </div>
     </div>
     <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
-      <span i-ri-folder-2-line flex-none text-lg text-yellow />
+      <span i-ri-pencil-ruler-2-line flex-none text-lg text-yellow />
       <div flex="~ col gap-4">
         <p>
-          Have a lot images to verify? Try <a href="https://github.com/antfu/qr-verify-cli" target="_blank" font-mono op75 hover:underline hover:op100>qr-verify</a> to do so in batch!
+          Don't know how to play? Don't worry! Rules will be added soon. Meanwhile just as <a href="https://github.com/nlebedevinc" target="_blank" font-mono op75 hover:underline hover:op100>Nikolay</a>
         </p>
       </div>
     </div>
