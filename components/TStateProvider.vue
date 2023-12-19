@@ -30,6 +30,7 @@ console.log('State', state.value)
     <button
       flex="~ gap-1.5 items-center" text-button
       :class="view === 'foreword' ? 'bg-secondary' : 'op50'"
+      :disabled="view === 'conclusion'"
       @click="view = 'foreword'"
     >
       <div i-ri-graduation-cap-line />
@@ -38,6 +39,7 @@ console.log('State', state.value)
     <button
       flex="~ gap-1.5 items-center" text-button
       :class="view === 'game' ? 'bg-secondary' : 'op50'"
+      :disabled="view === 'conclusion'"
       @click="view = 'game'"
     >
       <div i-ri-billiards-fill />
@@ -46,6 +48,7 @@ console.log('State', state.value)
     <button
       flex="~ gap-1.5 items-center" text-button
       :class="view === 'conclusion' ? 'bg-secondary' : 'op50'"
+      :disabled="view === 'foreword' || view === 'game'"
       @click="view = 'conclusion'"
     >
       <div i-ri-medal-line />
