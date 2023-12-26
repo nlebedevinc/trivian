@@ -10,6 +10,7 @@ const props = defineProps<{
 }>()
 
 const state = computed(() => props.state)
+const meta = computed(() => props.state.meta)
 const canvasPreview = ref<HTMLCanvasElement>()
 const canvasRect = ref<HTMLCanvasElement>()
 const result = ref<ScanResult>()
@@ -57,7 +58,7 @@ function start() {
     <div flex="~ gap-3 justify-center" border="~ base rounded" p4>
       <!-- <span i-ri-folder-2-line flex-none text-lg text-yellow /> -->
       <div flex="~ col gap-4" text-lg>
-        Results
+        {{ meta.closingTitle}}
       </div>
     </div>
 
@@ -66,17 +67,8 @@ function start() {
         <div border="~ base rounded" flex="~ gap-3" p4 op75 transition hover:op95>
           <span i-ri-goblet-fill flex-none text-lg text-yellow />
           <div flex="~ col gap-4">
-            <p>
-              Try adjusting the preprocessing options to get the best result.
-            </p>
-            <p>
-              This scanner uses the algorithm open sourced by WeChat, based on OpenCV.
-              It uses two CNN-based models and provides much better recognizability than average scanners.
-            </p>
-            <p>
-              The detection and decoding is done completely local in your browser.
-              This is made possible by compiling OpenCV with the WeChat's scanner into WebAssembly.
-              If you are interested in learning more, check out <a href="https://github.com/antfu/qr-scanner-wechat" target="_blank" font-mono op75 hover:underline hover:op100>qr-scanner-wechat</a>.
+            <p v-for="note in meta.closingNotes">
+              {{ note }}
             </p>
           </div>
         </div>
@@ -115,7 +107,7 @@ function start() {
       </div>
     </div>
 
-    <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
+    <!-- <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
       <span i-ri-lightbulb-line flex-none text-lg text-yellow />
       <div flex="~ col gap-4">
         <p>
@@ -131,12 +123,12 @@ function start() {
           If you are interested in learning more, check out <a href="https://github.com/antfu/qr-scanner-wechat" target="_blank" font-mono op75 hover:underline hover:op100>qr-scanner-wechat</a>.
         </p>
       </div>
-    </div>
+    </div> -->
     <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
       <span i-ri-folder-2-line flex-none text-lg text-yellow />
       <div flex="~ col gap-4">
         <p>
-          Have a lot images to verify? Try <a href="https://github.com/antfu/qr-verify-cli" target="_blank" font-mono op75 hover:underline hover:op100>qr-verify</a> to do so in batch!
+          I hope you enjoyed this lil present so much, hehe
         </p>
       </div>
     </div>

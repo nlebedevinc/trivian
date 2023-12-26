@@ -15,9 +15,9 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
       <a href="https://github.com/nlebedevinc/trivian" target="_blank" text-lg op50 hover:op100>
         <div i-ri-github-fill />
       </a>
-      <a href="https://chat.antfu.me" target="_blank" text-lg op50 hover:op100>
+      <!-- <a href="https://chat.antfu.me" target="_blank" text-lg op50 hover:op100>
         <div i-ri-linkedin-fill />
-      </a>
+      </a> -->
       <button op50 hover:op100 @click="toggleDark()">
         <div i-ri-sun-fill dark:i-ri-moon-fill />
       </button>
@@ -54,13 +54,12 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
           <span op50>Nikolay Lebedev's </span> <span font-600 op75>Trivian</span>
         </div>
         <div flex="~ gap-1 items-center">
-          <span i-ri-arrow-right-line ml1 inline-block h-1em op50 /><a op75 hover:op100 href="https://antfu.me/posts/ai-qrcode-101" target="_blank">What is Trivian?</a><br>
+          <span i-ri-arrow-right-line ml1 inline-block h-1em op50 /><a op75 hover:op100 href="#">What is Trivian?</a><br>
         </div>
         <div v-if="!hasParentWindow" flex="~ gap-1 items-center">
           <span i-ri-arrow-right-line ml1 inline-block h-1em op50 />
           <a
-            href="https://github.com/antfu/sd-webui-qrcode-toolkit"
-            target="_blank"
+            href="#"
             flex="~ inline gap-1 items-center" op75 hover:op100
           >How to play?</a>
         </div>
@@ -75,7 +74,7 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
       </div>
       <div>
         <span op50>If you find this app useful, </span>
-        <a href="https://github.com/sponsors/antfu" target="_blank" op75 hover:text-rose hover:underline hover:op100>Sponsor to support my work</a>
+        <a href="https://github.com/nlebedevinc" target="_blank" op75 hover:text-rose hover:underline hover:op100>Sponsor to support my work</a>
       </div>
 
       <div my2 h-1px border="t base" w-10 />
@@ -83,7 +82,7 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
       <div flex="~ gap-2 items-center">
         <span op65>
           v{{ config.public.version }}
-          <a text-xs font-mono op50 :href="`https://github.com/antfu/qrcode-toolkit/commit/${config.public.git.sha}`" target="_blank">({{ config.public.git.sha.slice(0, 5) }})</a>
+          <a text-xs font-mono op50 :href="`https://github.com/nlebedevinc/trivian/commit/${config.public.git.sha}`" target="_blank">({{ config.public.git.sha.slice(0, 5) }})</a>
         </span>
         <span op35>·</span>
         <span text-sm op50 :title="new Date(config.public.buildTime).toString()">Built {{ buildTime }}</span>
@@ -95,17 +94,17 @@ const buildTime = useTimeAgo(config.public.buildTime as any)
         <button op50 hover:op100 @click="toggleDark()">
           <div i-ri-sun-fill dark:i-ri-moon-fill />
         </button>
-        <a href="https://github.com/antfu/qrcode-toolkit" target="_blank" text-lg op50 hover:op100>
+        <a href="https://github.com/nlebedevinc/trivian" target="_blank" text-lg op50 hover:op100>
           <div i-ri-github-fill />
         </a>
-        <a href="https://chat.antfu.me" target="_blank" text-lg op50 hover:op100>
+        <!-- <a href="https://chat.antfu.me" target="_blank" text-lg op50 hover:op100>
           <div i-ri-linkedin-fill />
-        </a>
-        <a href="https://antfu.me" target="_blank" ml--0.5 text-lg op50 hover:op100>
+        </a> -->
+        <!-- <a href="https://antfu.me" target="_blank" ml--0.5 text-lg op50 hover:op100>
           <img src="https://antfu.me/logo.svg" h-1.2em w-1.2em dark:invert>
-        </a>
+        </a> -->
         <div flex="~ gap-1 items-center" ml-3>
-          <span op35>Made with </span><div text-red i-ri-heart-3-fill /><span op35> for </span><span font-bold op65></span><br>
+          <span op35>Made with </span><div text-red i-ri-heart-3-fill /><span op35> for </span><span font-bold op65>Tally</span><br>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
-import type { ScanResult } from 'qr-scanner-wechat'
 import { view } from '~/logic/tview'
 import type { TState } from '~/logic/types'
 
@@ -32,7 +31,6 @@ function start() {
 </script>
 
 <template>
-  <SafariWarning />
   <div flex="~ col gap-3">
     <div flex="~ gap-3 justify-center" border="~ base rounded" p4>
       <!-- <span i-ri-folder-2-line flex-none text-lg text-yellow /> -->
@@ -44,17 +42,8 @@ function start() {
     <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
       <span i-ri-lightbulb-line flex-none text-lg text-yellow />
       <div flex="~ col gap-4">
-        <p>
-          Try adjusting the preprocessing options to get the best result.
-        </p>
-        <p>
-          This scanner uses the algorithm open sourced by WeChat, based on OpenCV.
-          It uses two CNN-based models and provides much better recognizability than average scanners.
-        </p>
-        <p>
-          The detection and decoding is done completely local in your browser.
-          This is made possible by compiling OpenCV with the WeChat's scanner into WebAssembly.
-          If you are interested in learning more, check out <a href="https://github.com/antfu/qr-scanner-wechat" target="_blank" font-mono op75 hover:underline hover:op100>qr-scanner-wechat</a>.
+        <p v-for="item in meta.intro">
+          {{ item }}
         </p>
       </div>
     </div>
@@ -62,7 +51,15 @@ function start() {
       <span i-ri-pencil-ruler-2-line flex-none text-lg text-yellow />
       <div flex="~ col gap-4">
         <p>
-          Don't know how to play? Don't worry! Rules will be added soon. Meanwhile just as <a href="https://github.com/nlebedevinc" target="_blank" font-mono op75 hover:underline hover:op100>Nikolay</a>
+          Don't know how to play? Don't worry, rules will be added soon.
+        </p>
+      </div>
+    </div>
+    <div v-for="tip in meta.tips" flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
+      <span i-ri-pencil-ruler-2-line flex-none text-lg text-yellow />
+      <div flex="~ col gap-4">
+        <p>
+          {{ tip  }}
         </p>
       </div>
     </div>

@@ -20,9 +20,6 @@ defineProps<{
 // )
 
 const state = ref<TState>(defaultState())
-
-// eslint-disable-next-line no-console
-console.log('State', state.value)
 </script>
 
 <template>
@@ -54,14 +51,6 @@ console.log('State', state.value)
       <div i-ri-medal-line />
       Results
     </button>
-    <!-- <button
-      flex="~ gap-1.5 items-center" text-button
-      :class="view === 'camera' ? 'bg-secondary' : 'op50'"
-      @click="view = 'camera'"
-    >
-      <div i-ri-camera-line />
-      Camera
-    </button> -->
     <div flex-auto />
     <!-- <div>
       <a href="https://antfu.me" target="_blank" op75 hover:underline hover:op100>Anthony Fu</a><span op50>'s QR Toolkit</span>
@@ -106,6 +95,9 @@ console.log('State', state.value)
   </div>
 
   <div v-if="view === 'conclusion'" w-full>
-    <Conclusion :state="state" :reset="() => state.results = defaultResults()" />
+    <Conclusion :state="state" :reset="() => {
+      state.results = defaultResults()
+      state.current = 0
+    } " />
   </div>
 </template>

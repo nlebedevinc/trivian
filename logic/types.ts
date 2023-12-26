@@ -187,6 +187,9 @@ export interface Question {
 export interface Meta {
   description: string
   tips: string[]
+  intro: string[]
+  closingTitle: string
+  closingNotes: string[]
 }
 
 export interface Answer {
