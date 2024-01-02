@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { ScanResult } from 'qr-scanner-wechat'
 import { view } from '~/logic/tview'
 import type { TState } from '~/logic/types'
 
