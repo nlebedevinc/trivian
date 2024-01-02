@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import type { ScanResult } from 'qr-scanner-wechat'
 import { view } from '~/logic/tview'
@@ -7,16 +6,6 @@ import type { TState } from '~/logic/types'
 const props = defineProps<{
   state: TState
 }>()
-
-// const state = computed(() => props.state.scanner)
-// const canvasPreview = ref<HTMLCanvasElement>()
-// const canvasRect = ref<HTMLCanvasElement>()
-// // const result = ref<ScanResult>()
-// const reading = ref(false)
-// const loading = ref(true)
-// const error = ref<any>()
-// const controlling = ref(false)
-// const triesCount = ref(0)
 
 const quiz = computed(() => props.state.quiz)
 const current = computed(() => props.state.current)
@@ -37,22 +26,18 @@ onMounted(() => {
 })
 
 function next() {
-  console.log("Next", props.state.current)
   if (current.value < quiz.value.length - 1) {
-    // Object.assign(state, { current: state.value.current++ })
     props.state.current++
   }
 }
 
 function prev() {
-  console.log("Prev", props.state.current)
   if (current.value > 0) {
     props.state.current--
   }
 }
 
 function finish() {
-  console.log("Finish", props.state, isFinished)
   view.value = "conclusion"
 }
 
