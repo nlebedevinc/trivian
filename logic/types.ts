@@ -182,6 +182,7 @@ export interface Question {
   question: string
   options: string[]
   answer: string
+  note?: string
 }
 
 export interface Meta {

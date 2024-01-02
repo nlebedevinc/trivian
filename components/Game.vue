@@ -21,6 +21,17 @@ const props = defineProps<{
 const quiz = computed(() => props.state.quiz)
 const current = computed(() => props.state.current)
 const results = computed(() => props.state.results)
+const lastAnswer = computed(() => {
+  const { current, results } = props.state
+  const { attempts } = results.answers[current]
+
+  if (!attempts) {
+    return ''
+  }
+
+  const { length } = attempts
+  return attempts[length - 1]
+})
 
 onMounted(() => {
 })
@@ -113,6 +124,7 @@ function calcAnswerStyle(opt: string): string {
 </script>
 
 <template>
+  <div flex="~ col gap-3">
   <div grid="~ cols-[38rem_1fr] gap-2" lt-lg="flex flex-col">
     <div flex="~ col gap-2">
       <div flex="~ col gap-3">
@@ -155,7 +167,7 @@ function calcAnswerStyle(opt: string): string {
       </div>
     </div>
     <div>
-      <div  flex="~ col gap-2" min-h-50>
+      <div flex="~ col gap-2" min-h-50>
         <button
           v-for="opt in quiz[state.current].options" :key="opt"
           py2 text-sm text-button
@@ -171,5 +183,14 @@ function calcAnswerStyle(opt: string): string {
         </button>
       </div>
     </div>
+  </div>
+  <div v-if="calcAnswerStyle(lastAnswer) === 'green' && quiz[current].note" flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
+    <span i-ri-lightbulb-line flex-none text-lg text-yellow />
+    <div flex="~ col gap-4">
+      <p>
+        {{ quiz[current].note }}
+      </p>
+      </div>
+  </div>
   </div>
 </template>

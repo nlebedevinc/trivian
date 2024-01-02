@@ -51,6 +51,13 @@ function start() {
   view.value = 'foreword'
   props.reset()
 }
+
+function normalize(time: number): string {
+  const minutes = Math.floor(time / 60).toString().padStart(2, '0')
+  const seconds = Math.floor(time % 60).toString().padStart(2, '0')
+
+  return `${minutes}:${seconds}`
+}
 </script>
 
 <template>
@@ -99,7 +106,7 @@ function start() {
                 Total time taken
               </div>
               <div>
-                {{ state.results.time }}
+                {{ normalize(state.results.time) }}
               </div>
             </div>
           </div>
