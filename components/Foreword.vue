@@ -47,19 +47,19 @@ function start() {
         </p>
       </div>
     </div>
-    <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
-      <span i-ri-pencil-ruler-2-line flex-none text-lg text-yellow />
-      <div flex="~ col gap-4">
-        <p>
-          Don't know how to play? Don't worry, rules will be added soon.
-        </p>
-      </div>
-    </div>
     <div v-for="tip in meta.tips" flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
       <span i-ri-pencil-ruler-2-line flex-none text-lg text-yellow />
       <div flex="~ col gap-4">
         <p>
           {{ tip  }}
+        </p>
+      </div>
+    </div>
+    <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
+      <span i-ri-pencil-ruler-2-line flex-none text-lg text-yellow />
+      <div flex="~ col gap-4">
+        <p>
+          Don't know how to play? Don't worry, rules will be added soon.
         </p>
       </div>
     </div>

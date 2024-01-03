@@ -131,14 +131,6 @@ function normalize(time: number): string {
         </p>
       </div>
     </div> -->
-    <div flex="~ gap-3" border="~ base rounded" p4 op75 transition hover:op95>
-      <span i-ri-folder-2-line flex-none text-lg text-yellow />
-      <div flex="~ col gap-4">
-        <p>
-          I hope you enjoyed this lil present so much, hehe
-        </p>
-      </div>
-    </div>
 
     <div flex="~ gap-3" text-button @click="start">
       Start over again
